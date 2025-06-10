@@ -84,10 +84,40 @@ cypress/reports/mochawesome.html
 - Fixtures
 
 ---
+## Gorest API Tests
+
+Testes básicos para API Gorest usando token em arquivo Gorest environment.
+
+## Listar usuários - GET
+ - https://gorest.co.in/public/v2/users
+
+## Criar usuário - POST
+ - https://gorest.co.in/public/v2/users
+ ```http
+ json
+{
+  "name": "Rubens QA",
+  "email": "rubens.qa+{{randomInt}}@email.com",
+  "gender": "male",
+  "status": "active"
+}
+ ```
+## Atualizar usuário - PUT
+ - https://gorest.co.in/public/v2/users/
+```http
+json
+{
+  "name": "Rubens QA Updated",
+  "status": "inactive"
+}
+```
+## Deletar usuário - DELETE
+ - https://gorest.co.in/public/v2/users/{{user_id}}
+
 
 ## 👨‍💻 Autor
 
-Rubens — QA com mais de 10 anos de experiência
+Rubens
 
 ---
 #
