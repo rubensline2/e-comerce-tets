@@ -1,0 +1,18 @@
+{
+  "name": "amazon-cypress",
+  "version": "1.0.0",
+  "description": "Projeto de testes Cypress para Amazon",
+  "scripts": {
+    "test": "cypress run",
+    "test:report": "cypress run --reporter cypress-mochawesome-reporter",
+    "open": "cypress open"
+  },
+  "devDependencies": {
+    "cypress": "^13.17.0",
+    "cypress-mochawesome-reporter": "^3.2.3"
+  },
+  "main": "cypress.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,37 @@
+# Diretório de dependências
+node_modules/
+
+# Diretórios de resultados de testes Cypress
+cypress/videos/
+cypress/screenshots/
+
+# Diretórios de cobertura de testes (caso use cobertura com Istanbul, nyc, etc.)
+coverage/
+
+# Arquivos de configuração locais
+.env
+.env.local
+.env.*.local
+
+# Logs e arquivos temporários
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Cache do eslint
+.eslintcache
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Saída de build (caso esteja usando algo como React ou outra lib)
+dist/
+build/
+out/
