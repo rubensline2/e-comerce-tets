@@ -1,6 +1,6 @@
 export class HomePage {
   buscarProduto(produto) {
-    cy.get('#twotabsearchtextbox').type(produto);
-    cy.get('#nav-search-submit-button').click();
+    cy.get('#nav-bb-search').type(produto);
+    cy.get('.nav-bb-button').click();
   }
 }
