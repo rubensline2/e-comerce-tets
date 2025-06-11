@@ -1,4 +1,4 @@
-name: Testes com Mocha
+name: Cypress Tests
 
 on:
   push:
@@ -7,20 +7,26 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  cypress-run:
     runs-on: ubuntu-latest
 
     steps:
-    - name: 📥 Checkout do código
-      uses: actions/checkout@v3
+      - name: 📥 Checkout do código
+        uses: actions/checkout@v3
 
-    - name: 🟢 Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'
+      - name: 🟢 Instalar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-    - name: 📦 Instalar dependências
-      run: npm install
+      - name: 📦 Instalar dependências
+        run: npm ci
 
-    - name: 🧪 Rodar testes com Mocha
-      run: npm test
+      - name: 🧪 Executar testes Cypress com report
+        run: npm run test:report
+
+      - name: 📁 Upload dos relatórios HTML
+        uses: actions/upload-artifact@v4
+        with:
+          name: mochawesome-report
+          path: cypress/reports
