@@ -24,17 +24,6 @@ jobs:
 
       - name: 🧪 Executar testes Cypress com report
         run: npm run test:report
-        
-      - name: Adicionar etiqueta
-        with:
-          url: ${{ github.event.workflow_run.api_url }}/issues/${{ github.event.workflow_run.number }}
-          method: PATCH
-          headers: 'Authorization: Bearer ${{ github.token }}'
-          body: |
-            {
-              "labels": ["passed"]
-            }
-          status-code: 200
 
       - name: 📁 Upload dos relatórios HTML
         uses: actions/upload-artifact@v4
