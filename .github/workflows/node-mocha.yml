@@ -24,6 +24,16 @@ jobs:
 
       - name: 🧪 Executar testes Cypress com report
         run: npm run test:report
+        
+      - name: Adicionar etiqueta
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.issues.update({
+              issue_number: context.issue.number,
+              labels: ['passed']
+            })
 
       - name: 📁 Upload dos relatórios HTML
         uses: actions/upload-artifact@v4
