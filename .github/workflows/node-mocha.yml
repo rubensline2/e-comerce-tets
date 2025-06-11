@@ -26,14 +26,16 @@ jobs:
         run: npm run test:report
         
       - name: Adicionar etiqueta
-        uses: actions/github-script@v6
+        uses: actions/http-client@v1
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            github.issues.update({
-              issue_number: context.issue.number,
-              labels: ['passed']
-            })
+          method: PATCH
+          url: ${{ github.event.workflow_run.api_url }}/issues/${{ github.event.workflow_run.number }}
+          headers: 'Authorization: Bearer ${{ github.token }}'
+          content-type: 'application/json'
+          body: |
+            {
+              "labels": ["passed"]
+            }
 
       - name: 📁 Upload dos relatórios HTML
         uses: actions/upload-artifact@v4
