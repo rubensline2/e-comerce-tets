@@ -26,7 +26,6 @@ jobs:
         run: npm run test:report
         
       - name: Adicionar etiqueta
-        uses: http-headers@v1
         with:
           url: ${{ github.event.workflow_run.api_url }}/issues/${{ github.event.workflow_run.number }}
           method: PATCH
